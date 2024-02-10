@@ -36,7 +36,30 @@
     <div id="leftSide"></div>
     <div id="rightSide"></div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script></script>
+    <script>
+        window.addEventListener('load', generateFaces);
+        let numberOfFaces = 5;
+        const theLeftSide = document.querySelector('#leftSide');
+
+        let randomTop = Math.floor(Math.random() * 400) + 1;
+        let randomLeft = Math.floor(Math.random() * 400) + 1;
+
+        function generateFaces() {
+            for (i = 0; i < numberOfFaces; i++) {
+                let face = document.createElement('img');
+                face.src = 'https://cdn.pixabay.com/animation/2022/09/12/14/50/14-50-36-1_512.gif'
+                face.style.top = randomTop + 'px';
+                face.style.left = randomLeft + 'px';
+                
+                theLeftSide.appendChild(face)
+
+            }
+        }
+
+       
+
+        
+    </script>
 </body>
 
 </html>
