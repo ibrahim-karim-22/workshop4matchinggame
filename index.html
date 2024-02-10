@@ -9,15 +9,34 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" />
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/brands.css" />
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/solid.css" />
     <style>
+        body {
+            background-color: black;
+        }
+        .pageTitle {
+            text-align: center;
+            color: rgb(0, 0, 125);
+            text-shadow: aliceblue 1px 1px;
+            font-family: 'Workbench', sans-serif;
+            font-size: 122px;
+            
+        }
+        .containerDiv {
+            background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXQ2YnZyaTNrM3UxeGhydDBwdG8wemo3NWl5Zm9qY3hyMmRscHF0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/DZQyphCCVVCCzTVaW1/giphy.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-size: 500px 400px
+            
+        }
         img {
             position: absolute;
         }
 
-        div {
+        .mainDiv {
             position: absolute;
             width: 500px;
             height: 500px;
@@ -31,32 +50,57 @@
 </head>
 
 <body>
-    <h1>Matching Game</h1>
+
+    <h1 class="pageTitle">Matching Game</h1>
     <p>Click on the extra smiling face on the left</p>
-    <div id="leftSide"></div>
-    <div id="rightSide"></div>
+    <div id="leftSide" class="mainDiv containerDiv"></div>
+    <div id="rightSide" class="mainDiv containerDiv"></div>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script>
-        window.addEventListener('load', generateFaces);
         let numberOfFaces = 5;
         const theLeftSide = document.querySelector('#leftSide');
-
-        let randomTop = Math.floor(Math.random() * 400) + 1;
-        let randomLeft = Math.floor(Math.random() * 400) + 1;
-
+        const theRightSide = document.querySelector('#rightSide');
+        
+        
+        window.addEventListener('load', generateFaces);
+        
         function generateFaces() {
             for (i = 0; i < numberOfFaces; i++) {
                 let face = document.createElement('img');
-                face.src = 'https://cdn.pixabay.com/animation/2022/09/12/14/50/14-50-36-1_512.gif'
+                face.src = 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm9kYWsyajRpNmNvMHlwYm5rZWN4M2g1NW9ydXcxaHQ3NW9nNGRmdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif'
+                face.style.width = '100px';
+                let randomTop = Math.floor(Math.random() * 400) + 1;
+                let randomLeft = Math.floor(Math.random() * 400) + 1;
                 face.style.top = randomTop + 'px';
                 face.style.left = randomLeft + 'px';
-                
-                theLeftSide.appendChild(face)
-
+                theLeftSide.appendChild(face);
             }
-        }
+            const leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.firstChild);
+            theRightSide.appendChild(leftSideImages);
 
-       
+            theLeftSide.lastChild.addEventListener('click', nextLevel);
+            document.body.addEventListener('click', gameOver);
+        }
+        function gameOver() {
+            alert('Game Over!');
+            document.body.removeEventListener('click', gameOver);
+            theLeftSide.lastChild.removeEventListener('click', nextLevel);
+        }
+        function nextLevel(event) {
+            event.stopPropagation();
+            numberOfFaces += 5;
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            while (theRightSide.firstChild) {
+                theRightSide.removeChild(theRightSide.firstChild)
+            }
+            generateFaces();
+        }
+        
+
 
         
     </script>
