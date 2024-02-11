@@ -50,7 +50,7 @@
         background-repeat: no-repeat;
         background-size: 500px 500px;
       }
-      img {
+      #rightSide img, #leftSide img {
         position: absolute;
       }
 
@@ -60,48 +60,97 @@
         height: 500px;
       }
 
+
       #rightSide {
         left: 500px;
         border-left: 5px solid;
         border-color: aliceblue;
       }
+      .startBtn {
+        position: relative; /* Set container to relative positioning */
+        display: inline-block; /* Make container inline-block to allow overlapping */
+      }
       
-      
+      .startBtn button {
+        position: relative; /* Set button to relative positioning */
+        z-index: 0; /* Ensure button appears on top */
+      }
+      .titleImg1 {
+        position: absolute; /* Set image to absolute positioning */
+        top: 0; /* Align image to the top of the container */
+        right: 4%; /* Move image to the right by 50% of the container width */
+        transform: translateX(-50%); /* Adjust image position to center it horizontally */
+        z-index: 1; /* Ensure image appears below button */
+      }
+      .startBtnContainer {
+        text-align: center; /* Center inline-block container */
+}
+.attempts {
+  text-align: end;
+}
+#attDisplay {
+  text-align: end;
+}
+
     </style>
   </head>
 
   <body>
     <h1 class="pageTitle">Matching Game</h1>
-    <p class="par1">Click on the extra smiling face on the left</p>
-    <button id="startButton">Start Game!</button>
+    <div class="startBtnContainer">
+    <div class="startBtn">
+      <div class="titleImg1">
+        <img src="https://media4.giphy.com/media/shCMfW4kOHdDi/giphy.gif?cid=ecf05e47gbg6xolaj1xrz12dzhmmkrs86zbvootefif461hb&ep=v1_gifs_related&rid=giphy.gif&ct=s"/> 
+      </div>
+      <button id="startButton" class="btn btn-danger btn-lg">Start Game!</button>
+    </div>
+  </div>
+  <button id="settingsButton" class="btn btn-danger btn-lg">Start Game!</button>
+</div>
+</div>
+<button id="infoButton" class="btn btn-danger btn-lg">Start Game!</button>
+</div>
+    <div class="startBtnBg">
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif">
+    </div>
+  </div>
+    <p class="par1 mt-5">Click on the extra image on the left. Do not click anywhere else.</p>
     <div id="gameArea">
     <div id="leftSide" class="mainDiv containerDiv"></div>
     <div id="rightSide" class="mainDiv containerDiv"></div>
+</div>
+<div class="attemptsContainer">
+  <h2 class="attempts text-light">Level: </h2>
+  <h2 id="attDisplay" class="text-light">1</h2>
 </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script>
       let numberOfFaces = 5;
       const theLeftSide = document.querySelector("#leftSide");
       const theRightSide = document.querySelector("#rightSide");
-      let gameStarted = false;
+      const theGameArea = document.querySelector("#gameArea");
+      const theAttDisplay = document.querySelector("#attDisplay");
+      theGameArea.style.display = "none";
+      let gameHasStarted = false;
 
-      document
-        .querySelector("#startButton")
-        .addEventListener("click", startGame);
+      document.querySelector("#startButton").addEventListener("click", startGame);
 
       function startGame() {
-        if (gameStarted) {
+        if (gameHasStarted) {
             return;
         }
-        gameStarted = true;
+        gameHasStarted = true;
+        theGameArea.style.display = "block";
+        theAttDisplay.textContent = '1';
         generateFaces();
       }
 
       // window.addEventListener('load', generateFaces); Im going to add a button
+
       document.querySelector("#gameArea").addEventListener("click", gameOver);
 
       function generateFaces() {
-        if (!gameStarted) {
+        if (!gameHasStarted) {
           return;
         }
 
@@ -124,17 +173,17 @@
        // document.body.addEventListener("click", gameOver);
       }
       function gameOver() {
-        if (!gameStarted) {
+        if (!gameHasStarted) {
           return;
         }
         alert("Game Over!");
-        gameStarted = false;
+        gameHasStarted = false;
 
         document.body.removeEventListener("click", gameOver);
         theLeftSide.lastChild.removeEventListener("click", nextLevel);
       }
       function nextLevel(event) {
-        if (!gameStarted) {
+        if (!gameHasStarted) {
           return;
         }
 
@@ -147,7 +196,17 @@
           theRightSide.removeChild(theRightSide.firstChild);
         }
         generateFaces();
+        countAttempts();
       }
+        function countAttempts() {
+          if (!gameHasStarted) {
+            return;
+          }
+          
+          const currentAttempt = parseInt(theAttDisplay.textContent, 10) || 0;
+          const newAttempt = currentAttempt + 1;
+          theAttDisplay.textContent = newAttempt;
+        }
     </script>
   </body>
 </html>
