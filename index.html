@@ -1,212 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="Ibrahim Karim" />
-    <title>Matching Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Workbench&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/node_modules/@fortawesome/fontawesome-free/css/brands.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/node_modules/@fortawesome/fontawesome-free/css/solid.css"
-    />
-    <style>
-      body {
-        background-color: black;
-      }
-      .pageTitle {
-        text-align: center;
-        color: rgb(0, 0, 125);
-        text-shadow: aliceblue 1px 1px;
-        font-family: "Workbench", sans-serif;
-        font-size: 122px;
-      }
-      .par1 {
-        text-align: center;
-        color: blue;
-        text-shadow: black 3px 2px;
-        font-size: 22px;
-      }
-      .containerDiv {
-        background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXQ2YnZyaTNrM3UxeGhydDBwdG8wemo3NWl5Zm9qY3hyMmRscHF0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/DZQyphCCVVCCzTVaW1/giphy.gif);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-size: 500px 500px;
-      }
-      #rightSide img, #leftSide img {
-        position: absolute;
-      }
 
-      .mainDiv {
-        position: absolute;
-        width: 500px;
-        height: 500px;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Ibrahim Karim" />
+  <title>Matching Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" />
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/brands.css" />
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/solid.css" />
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .pageTitle {
+      text-align: center;
+      color: rgb(0, 0, 125);
+      text-shadow: aliceblue 1px 1px;
+      font-family: "Workbench", sans-serif;
+      font-size: 122px;
+    }
+
+    .par1 {
+      text-align: center;
+      color: blue;
+      text-shadow: black 3px 2px;
+      font-size: 22px;
+    }
+
+    .containerDiv {
+      background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXQ2YnZyaTNrM3UxeGhydDBwdG8wemo3NWl5Zm9qY3hyMmRscHF0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/DZQyphCCVVCCzTVaW1/giphy.gif);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-size: 500px 500px;
+    }
+
+    #rightSide img,
+    #leftSide img {
+      position: absolute;
+    }
+
+    .mainDiv {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+    }
 
 
-      #rightSide {
-        left: 500px;
-        border-left: 5px solid;
-        border-color: aliceblue;
-      }
-      .startBtn {
-        position: relative; /* Set container to relative positioning */
-        display: inline-block; /* Make container inline-block to allow overlapping */
-      }
-      
-      .startBtn button {
-        position: relative; /* Set button to relative positioning */
-        z-index: 0; /* Ensure button appears on top */
-      }
-      .titleImg1 {
-        position: absolute; /* Set image to absolute positioning */
-        top: 0; /* Align image to the top of the container */
-        right: 4%; /* Move image to the right by 50% of the container width */
-        transform: translateX(-50%); /* Adjust image position to center it horizontally */
-        z-index: 1; /* Ensure image appears below button */
-      }
-      .startBtnContainer {
-        text-align: center; /* Center inline-block container */
-}
-.attempts {
-  text-align: end;
-}
-#attDisplay {
-  text-align: end;
-}
+    #rightSide {
+      left: 500px;
+      border-left: 5px solid;
+      border-color: aliceblue;
+    }
 
-    </style>
-  </head>
+    .startBtn {
+      position: relative;
+      /* Set container to relative positioning */
+      display: inline-block;
+      /* Make container inline-block to allow overlapping */
+    }
 
-  <body>
-    <h1 class="pageTitle">Matching Game</h1>
-    <div class="startBtnContainer">
+    .startBtn button {
+      position: relative;
+      /* Set button to relative positioning */
+      z-index: 0;
+      /* Ensure button appears on top */
+    }
+
+    .titleImg1 {
+      position: absolute;
+      /* Set image to absolute positioning */
+      top: 0;
+      /* Align image to the top of the container */
+      right: 4%;
+      /* Move image to the right by 50% of the container width */
+      transform: translateX(-50%);
+      /* Adjust image position to center it horizontally */
+      z-index: 1;
+      /* Ensure image appears below button */
+    }
+
+    .startBtnContainer {
+      text-align: center;
+      /* Center inline-block container */
+    }
+
+    .buttonsBg {
+      text-align: center;
+    }
+
+    .attempts {
+      text-align: end;
+    }
+
+    #attDisplay {
+      text-align: end;
+    }
+
+    .settingsBtn {
+      position: relative;
+      /* Set container to relative positioning */
+      display: inline-block;
+      /* Make container inline-block to allow overlapping */
+    }
+
+    .settingsBtn {
+      position: relative;
+      /* Set button to relative positioning */
+      z-index: 0;
+      /* Ensure button appears on top */
+    }
+
+    .settingsBtnContainer {
+      text-align: center;
+    }
+
+    .infoBtn {
+      position: relative;
+      /* Set container to relative positioning */
+      display: inline-block;
+      /* Make container inline-block to allow overlapping */
+    }
+
+    .infoBtn {
+      position: relative;
+      /* Set button to relative positioning */
+      z-index: 0;
+      /* Ensure button appears on top */
+    }
+
+    .infoBtnContainer {
+      text-align: center;
+    }
+
+    .menuBtn {
+      position: relative;
+      /* Set container to relative positioning */
+      display: inline-block;
+      /* Make container inline-block to allow overlapping */
+    }
+
+    .menuBtn {
+      position: relative;
+      /* Set button to relative positioning */
+      z-index: 0;
+      /* Ensure button appears on top */
+    }
+
+    .menuBtnContainer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="pageTitle">Matching Game</h1>
+  <div class="startBtnContainer">
     <div class="startBtn">
-      <div class="titleImg1">
-        <img src="https://media4.giphy.com/media/shCMfW4kOHdDi/giphy.gif?cid=ecf05e47gbg6xolaj1xrz12dzhmmkrs86zbvootefif461hb&ep=v1_gifs_related&rid=giphy.gif&ct=s"/> 
+       <div class="titleImg1">
+        <img
+          src="https://media4.giphy.com/media/shCMfW4kOHdDi/giphy.gif?cid=ecf05e47gbg6xolaj1xrz12dzhmmkrs86zbvootefif461hb&ep=v1_gifs_related&rid=giphy.gif&ct=s" />
       </div>
-      <button id="startButton" class="btn btn-danger btn-lg">Start Game!</button>
+      <button id="startButton" class="btn btn-danger btn-lg mb-3">Start Game!</button>
     </div>
   </div>
-  <button id="settingsButton" class="btn btn-danger btn-lg">Start Game!</button>
-</div>
-</div>
-<button id="infoButton" class="btn btn-danger btn-lg">Start Game!</button>
-</div>
-    <div class="startBtnBg">
-      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif">
+  <div class="settingsBtnContainer">
+    <div class="settingsBtn">
+      <button id="settingsButton" class="btn btn-danger btn-lg mb-3 ">Settings!</button>
     </div>
   </div>
-    <p class="par1 mt-5">Click on the extra image on the left. Do not click anywhere else.</p>
-    <div id="gameArea">
+  <div class="infoBtnContainer">
+    <div class="infoBtn">
+      <button id="infoButton" class="btn btn-danger btn-lg">Info!</button>
+    </div>
+  </div>
+  <div class="buttonsBg">
+    <img
+      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif" width="777px">
+  </div>
+  </div>
+  <div class="menuBtnContainer">
+    <div class="menuBtn">
+      <button id="menuButton" class="btn btn-warning">Main Menu!</button>
+    </div>
+  </div>
+  <p class="par1 mt-5">Click on the extra image on the left. Do not click anywhere else.</p>
+  <div id="gameArea">
     <div id="leftSide" class="mainDiv containerDiv"></div>
     <div id="rightSide" class="mainDiv containerDiv"></div>
-</div>
-<div class="attemptsContainer">
-  <h2 class="attempts text-light">Level: </h2>
-  <h2 id="attDisplay" class="text-light">1</h2>
-</div>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script>
-      let numberOfFaces = 5;
-      const theLeftSide = document.querySelector("#leftSide");
-      const theRightSide = document.querySelector("#rightSide");
-      const theGameArea = document.querySelector("#gameArea");
-      const theAttDisplay = document.querySelector("#attDisplay");
+  </div>
+  <div class="attemptsContainer">
+    <h2 class="attempts text-light">Level: </h2>
+    <h2 id="attDisplay" class="text-light">1</h2>
+  </div>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script>
+    let numberOfFaces = 5;
+    const theLeftSide = document.querySelector("#leftSide");
+    const theRightSide = document.querySelector("#rightSide");
+    const theGameArea = document.querySelector("#gameArea");
+    const theAttDisplay = document.querySelector("#attDisplay");
+    const theStartBtnContainer = document.querySelector(".startBtnContainer");
+    const theSettingsBtnContainer = document.querySelector(".settingsBtnContainer");
+    const theInfoBtnContainer = document.querySelector(".infoBtnContainer");
+    const theMenuBtnContainer = document.querySelector(".menuBtnContainer");
+    const theButtonsBg = document.querySelector(".buttonsBg");
+    theGameArea.style.display = "none";
+    theMenuBtnContainer.style.display = "none";
+    let gameHasStarted = false;
+
+    document.querySelector("#startButton").addEventListener("click", startGame);
+    document.querySelector("#menuButton").addEventListener("click", mainMenuPress);
+
+    function startGame() {
+      if (gameHasStarted) {
+        return;
+      }
+      resetGame()
+      gameHasStarted = true;
+      theGameArea.style.display = "block";
+      theStartBtnContainer.style.display = "none";
+      theSettingsBtnContainer.style.display = "none";
+      theInfoBtnContainer.style.display = "none";
+      theButtonsBg.style.display = "none";
+      theMenuBtnContainer.style.display = "block";
+      generateFaces();
+    }
+    function resetGame() {
+      gameHasStarted = false;
+      numberOfFaces = 5;
+      theAttDisplay.textContent = '1'; // Reset attempt display
+      theLeftSide.innerHTML = ""; // Clear left side of faces
+      theRightSide.innerHTML = ""; // Clear right side of faces
+    }
+
+    function mainMenuPress() {
+      resetGame();
+      theStartBtnContainer.style.display = "block";
+      theSettingsBtnContainer.style.display = "block";
+      theInfoBtnContainer.style.display = "block";
+      theButtonsBg.style.display = "block";
+      theMenuBtnContainer.style.display = "none";
       theGameArea.style.display = "none";
-      let gameHasStarted = false;
+      generateFaces();
+    }
 
-      document.querySelector("#startButton").addEventListener("click", startGame);
+    // window.addEventListener('load', generateFaces); Im going to add a button
 
-      function startGame() {
-        if (gameHasStarted) {
-            return;
-        }
-        gameHasStarted = true;
-        theGameArea.style.display = "block";
-        theAttDisplay.textContent = '1';
-        generateFaces();
+    document.querySelector("#gameArea").addEventListener("click", gameOver);
+
+    function generateFaces() {
+      if (!gameHasStarted) {
+        return;
       }
 
-      // window.addEventListener('load', generateFaces); Im going to add a button
-
-      document.querySelector("#gameArea").addEventListener("click", gameOver);
-
-      function generateFaces() {
-        if (!gameHasStarted) {
-          return;
-        }
-
-        for (let i = 0; i < numberOfFaces; i++) {
-          let face = document.createElement("img");
-          face.src =
-            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm9kYWsyajRpNmNvMHlwYm5rZWN4M2g1NW9ydXcxaHQ3NW9nNGRmdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif";
-          face.style.width = "111px";
-          let randomTop = Math.floor(Math.random() * 400) + 1;
-          let randomLeft = Math.floor(Math.random() * 400) + 1;
-          face.style.top = randomTop + "px";
-          face.style.left = randomLeft + "px";
-          theLeftSide.appendChild(face);
-        }
-        const leftSideImages = theLeftSide.cloneNode(true);
-        leftSideImages.removeChild(leftSideImages.lastChild);
-        theRightSide.appendChild(leftSideImages);
-
-        theLeftSide.lastChild.addEventListener("click", nextLevel);
-       // document.body.addEventListener("click", gameOver);
+      for (let i = 0; i < numberOfFaces; i++) {
+        let face = document.createElement("img");
+        face.src =
+          "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm9kYWsyajRpNmNvMHlwYm5rZWN4M2g1NW9ydXcxaHQ3NW9nNGRmdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif";
+        face.style.width = "111px";
+        let randomTop = Math.floor(Math.random() * 400) + 1;
+        let randomLeft = Math.floor(Math.random() * 400) + 1;
+        face.style.top = randomTop + "px";
+        face.style.left = randomLeft + "px";
+        theLeftSide.appendChild(face);
       }
-      function gameOver() {
-        if (!gameHasStarted) {
-          return;
-        }
-        alert("Game Over!");
-        gameHasStarted = false;
+      const leftSideImages = theLeftSide.cloneNode(true);
+      leftSideImages.removeChild(leftSideImages.lastChild);
+      theRightSide.appendChild(leftSideImages);
 
-        document.body.removeEventListener("click", gameOver);
-        theLeftSide.lastChild.removeEventListener("click", nextLevel);
+      theLeftSide.lastChild.addEventListener("click", nextLevel);
+      // document.body.addEventListener("click", gameOver);
+    }
+    function gameOver() {
+      if (!gameHasStarted) {
+        return;
       }
-      function nextLevel(event) {
-        if (!gameHasStarted) {
-          return;
-        }
+      alert("Game Over!");
+      gameHasStarted = false;
 
-        event.stopPropagation();
-        numberOfFaces += 5;
-        while (theLeftSide.firstChild) {
-          theLeftSide.removeChild(theLeftSide.firstChild);
-        }
-        while (theRightSide.firstChild) {
-          theRightSide.removeChild(theRightSide.firstChild);
-        }
-        generateFaces();
-        countAttempts();
+      document.body.removeEventListener("click", gameOver);
+      theLeftSide.lastChild.removeEventListener("click", nextLevel);
+    }
+    function nextLevel(event) {
+      if (!gameHasStarted) {
+        return;
       }
-        function countAttempts() {
-          if (!gameHasStarted) {
-            return;
-          }
-          
-          const currentAttempt = parseInt(theAttDisplay.textContent, 10) || 0;
-          const newAttempt = currentAttempt + 1;
-          theAttDisplay.textContent = newAttempt;
-        }
-    </script>
-  </body>
+
+      event.stopPropagation();
+      numberOfFaces += 5;
+      while (theLeftSide.firstChild) {
+        theLeftSide.removeChild(theLeftSide.firstChild);
+      }
+      while (theRightSide.firstChild) {
+        theRightSide.removeChild(theRightSide.firstChild);
+      }
+      generateFaces();
+      countAttempts();
+    }
+    function countAttempts() {
+      if (!gameHasStarted) {
+        return;
+      }
+
+      const currentAttempt = parseInt(theAttDisplay.textContent, 10) || 0;
+      const newAttempt = currentAttempt + 1;
+      theAttDisplay.textContent = newAttempt;
+    }
+  </script>
+</body>
+
 </html>
