@@ -11,10 +11,13 @@ body {
   }
 
   .par1 {
-    text-align: center;
+    position: relative;
     color: blue;
     text-shadow: black 3px 2px;
     font-size: 22px;
+    left: 27%;
+    transform:translateY(22%)
+
   }
 
   .containerDiv {
@@ -41,7 +44,9 @@ body {
     border-left: 5px solid;
     border-color: aliceblue;
   }
-
+#gameArea {
+  transform: translateX(22.5%);
+}
   .startBtn {
     position: relative;
 
@@ -279,13 +284,6 @@ body {
     z-index: 2;
   }
 
-  #timer {
-    position: absolute;
-    top: 0;
-    left: 55%;
-    transform: translateY(999%);
-    z-index: 2;
-  }
 
   p {
     position: absolute;
