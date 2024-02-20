@@ -78,6 +78,7 @@ function resetGame() {
   gameHasStarted = false;
   // numberOfFaces = 5;
   //theAttDisplay.textContent = '1';
+  currentLevel = 1;
   theLeftSide.innerHTML = "";
   theRightSide.innerHTML = "";
   clearInterval(timer);
@@ -111,42 +112,21 @@ function generateFaces(difficulty) {
   switch (difficulty) {
     case "easy":
       numberOfFaces = 2;
-      imageUrls = ["https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif",
-        "https://media0.giphy.com/media/2oWVpPXfTBvdYbFu9G/giphy.gif?cid=ecf05e47izbicum9s05fqnl8p98f84t92c12gqnhwndn0vv0&ep=v1_gifs_related&rid=giphy.gif&ct=s"]
+      imageUrls = [ "../images/servers.webp" ,"../images/cat3.webp", "../images/dua2.webp",  "../images/dua3.webp"]
       break;
     case "medium":
       numberOfFaces = 5;
-      imageUrls = ["https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif",
-        "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZxdHBvN29vdG4zeDRoYTl5ZXViazR3MWd1dm12dWRpaHA1Mmt3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/2VVvpkyyym5FOrHQG3/giphy.gif",
-        "https://media0.giphy.com/media/p94nK1krMpGIkJYYJv/giphy.gif?cid=ecf05e47t6ywjjanrok2r8504p2f2yn0hiedwxxnzd90w1kn&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExam9uZWM4N2o3dzBvazd2dnF1ZDd6MndwcGlvbHlzenA3Y290bm1nbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/C0Rvn1BlqQQgM/giphy.gif",
-        "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI5aTg0ejN4cGhwbnp0dWF4amRkbjhzeXYweDIwNzVmeXNtbGM3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/wAs2ha84kWkOu8x1A6/giphy.gif"
+      imageUrls = [
       ]
       break;
     case "hard":
       numberOfFaces = 8;
-      imageUrls = ["https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif",
-        "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZxdHBvN29vdG4zeDRoYTl5ZXViazR3MWd1dm12dWRpaHA1Mmt3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/2VVvpkyyym5FOrHQG3/giphy.gif",
-        "https://media0.giphy.com/media/p94nK1krMpGIkJYYJv/giphy.gif?cid=ecf05e47t6ywjjanrok2r8504p2f2yn0hiedwxxnzd90w1kn&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hydDR0cWNwNmZzZWwxenh1NXY4NG5wZTJjcHhqMDc1ajR1aGpidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/d2Sor6kd4bug3J3Srk/giphy.gif",
-        "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExam9uZWM4N2o3dzBvazd2dnF1ZDd6MndwcGlvbHlzenA3Y290bm1nbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/C0Rvn1BlqQQgM/giphy.gif",
-        "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHR0Y3h6c3o5bGp2djBhdGFvcjZpczBnNnlvaWQ3a2lwZDZnZHFqcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MxYQrB9jeGzza/giphy.gif",
-        "https://media4.giphy.com/media/T8yNFdUIRs2Hu/giphy.gif?cid=ecf05e47c3p1kmcxot2i5ookm2d2ymz777a6km2byzx8kgqi&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI5aTg0ejN4cGhwbnp0dWF4amRkbjhzeXYweDIwNzVmeXNtbGM3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/wAs2ha84kWkOu8x1A6/giphy.gif"
+      imageUrls = [
       ]
       break;
     case "goodLuck":
       numberOfFaces = 10;
-      imageUrls = ["https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG9haXAyMWVma2hxZTd0cHA5M3o4NDBxbmc1azVrdnJsa2lic3F5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JLGhqNoi9xsnS/giphy.gif",
-        "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZxdHBvN29vdG4zeDRoYTl5ZXViazR3MWd1dm12dWRpaHA1Mmt3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/2VVvpkyyym5FOrHQG3/giphy.gif",
-        "https://media0.giphy.com/media/p94nK1krMpGIkJYYJv/giphy.gif?cid=ecf05e47t6ywjjanrok2r8504p2f2yn0hiedwxxnzd90w1kn&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hydDR0cWNwNmZzZWwxenh1NXY4NG5wZTJjcHhqMDc1ajR1aGpidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/d2Sor6kd4bug3J3Srk/giphy.gif",
-        "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExam9uZWM4N2o3dzBvazd2dnF1ZDd6MndwcGlvbHlzenA3Y290bm1nbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/C0Rvn1BlqQQgM/giphy.gif",
-        "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmgwdG5jeHVrN2I4MXhiemlpd3J6cnJjZTdoa2pzNmlwa3F0ZnRiMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/llxTZC250AVby0Xdan/giphy.gif",
-        "https://media4.giphy.com/media/dQx8nzM8Z1EJXbBqk3/giphy.gif?cid=ecf05e47vfk5dsleq6xczqac6edtrmsvtu0k6japrl6un12g&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media0.giphy.com/media/SHgA5d6Aoqp7OJXdCC/giphy.gif?cid=ecf05e47vfk5dsleq6xczqac6edtrmsvtu0k6japrl6un12g&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media4.giphy.com/media/27bTZsLdvsCFMDaVQ6/giphy.gif?cid=ecf05e47nq2s3e07igzv5q8qfvvu3suwxorq5et8uqjehook&ep=v1_gifs_related&rid=giphy.gif&ct=s",
-        "https://media0.giphy.com/media/2oWVpPXfTBvdYbFu9G/giphy.gif?cid=ecf05e47izbicum9s05fqnl8p98f84t92c12gqnhwndn0vv0&ep=v1_gifs_related&rid=giphy.gif&ct=s",
+      imageUrls = [
       ]
       break;
     default:
@@ -202,6 +182,7 @@ function nextLevel(event, difficulty) {
   currentLevel++; // Increment the current level
   generateFaces(difficulty);
   countAttempts();
+  timeLeft += 5;
 }
 
 function countAttempts() {
