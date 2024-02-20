@@ -18,42 +18,33 @@ const theGameOverImage = document.querySelector(".theGameOverImage");
 const theGameOverMessage = document.querySelector(".gameOverMessage");
 const theScoreBoard = document.querySelector(".scoreBoard");
 const thePar = document.querySelector(".par1");
+
+let timer;
+let timeLeft = 60;
+let userName;
+let numberOfFaces;
+let face;
+let randomTop;
+let randomBottom;
+let gameHasStarted = false;
+let leftImgsCopy;
+let currentLevel = 1;
+let extraImage;
+let extraImageUrl;
+let randomExtraTop;
+let randomExtraLeft;
+let extraImageClickListener;
+let imageUrls;
+let leftImgCopy;
+let previousExtraImage = null;
+let faceLocker;
+
 theGameArea.style.display = "none";
 theMenuBtnContainer.style.display = "none";
 theGameOverScreen.style.display = "none";
 theAttemptsContainer.style.display = "none";
 timerSpan.style.display = "none";
 thePar.style.display = "none";
-
-
-
-
-
-
-
-let timer;
-let timeLeft = 60;
-let userName;
-let numberOfFaces;
-let gameHasStarted = false;
-let leftImgsCopy;
-let currentLevel = 1;
-let extraImageClickListener;
-let imageUrls;
-
-//theLeftSide.lastChild.addEventListener("click", nextLevel);
-// document.body.addEventListener("click", gameOver);
-// document.body.addEventListener("click", function (event, difficulty) {
-//   if (!gameHasStarted) {
-//     return;
-//   }
-
-//   if (event.target === theRightSide) {
-//     gameOver();
-//   } else if (event.target === theLeftSide.lastChild) {
-//     nextLevel(event, difficulty);
-//   }
-// });
 
 function startGame(difficulty) {
   if (gameHasStarted) {
@@ -82,6 +73,7 @@ function startGame(difficulty) {
   theHardBtn.style.display = "none";
   theGoodLuckBtn.style.display = "none";
 }
+
 function resetGame() {
   gameHasStarted = false;
   // numberOfFaces = 5;
@@ -91,6 +83,7 @@ function resetGame() {
   clearInterval(timer);
   timerSpan.innerHTML = 60;
 }
+
 function mainMenuPress() {
   resetGame();
   theGameArea.style.display = "none";
@@ -109,7 +102,7 @@ function mainMenuPress() {
   theGoodLuckBtn.style.display = "block";
   //  generateFaces();
 }
-let previousExtraImage = null;
+
 function generateFaces(difficulty) {
   if (!gameHasStarted) {
     return;
@@ -160,72 +153,56 @@ function generateFaces(difficulty) {
       console.error('invalid');
       return;
   }
+  
     // Clear the left and right sides before generating new faces
+    numberOfFaces += currentLevel;
     theLeftSide.innerHTML = "";
     theRightSide.innerHTML = "";
+    console.log('left: ' + theLeftSide.innerHTML + 'right: ' + theRightSide.innerHTML);
   for (let i = 0; i < numberOfFaces; i++) {
-    let face = document.createElement("img");
+    face = document.createElement("img");
     face.src = imageUrls[i];
     face.style.width = "77px";
-    let randomTop = Math.floor(Math.random() * 400) + 1;
-    let randomLeft = Math.floor(Math.random() * 400) + 1;
+    randomTop = Math.floor(Math.random() * 400) + 1;
+    randomLeft = Math.floor(Math.random() * 400) + 1;
     face.style.top = randomTop + "px";
     face.style.left = randomLeft + "px";
     theLeftSide.appendChild(face);
   }
-    // After adding the extra image to the left side
-    let extraImage = document.createElement("img");
-    let extraImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)]; // Choose a random URL from imageUrls
+    extraImage = document.createElement("img");
+    extraImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
     extraImage.src = extraImageUrl;
     extraImage.style.width = "77px";
-    // Set a custom attribute to mark it as the extra image
-    // Generate a random position for the extra image
-    let randomExtraTop = Math.floor(Math.random() * 400) + 1;
-    let randomExtraLeft = Math.floor(Math.random() * 400) + 1;
+    randomExtraTop = Math.floor(Math.random() * 400) + 1;
+    randomExtraLeft = Math.floor(Math.random() * 400) + 1;
     extraImage.style.top = randomExtraTop + "px";
     extraImage.style.left = randomExtraLeft + "px";
-   // extraImage.setAttribute("data-extra-image-url", extraImageUrl);
-   
     theLeftSide.appendChild(extraImage);
-    // Clone left side images to the right side
-    let leftImgCopy = theLeftSide.cloneNode(true);
-    leftImgCopy.removeChild(leftImgCopy.lastChild); // Remove the extra image from the cloned node
+    
+    leftImgCopy = theLeftSide.cloneNode(true);
+   leftImgCopy.removeChild(leftImgCopy.lastChild); 
     theRightSide.appendChild(leftImgCopy);
 
-      // Define a new event listener for the current extra image
       extraImageClickListener = function(event) {
         nextLevel(event, difficulty);
     };
-    // Add event listener only to the extra image
     if (previousExtraImage) {
         previousExtraImage.removeEventListener("click", extraImageClickListener);
     }
-
-    // Add event listener to the current extra image
     extraImage.addEventListener("click", extraImageClickListener);
-    
-
-    // Store the reference to the current extra image as the previous extra image
     previousExtraImage = extraImage;
+    
 }
 
-//     extraImage.addEventListener("click", function(event) {
-//     nextLevel(event, difficulty);
-// });
-// }
-
 function nextLevel(event, difficulty) {
-    console.log('next level called');
-    if (!gameHasStarted) {
+  if (!gameHasStarted) {
       return;
-    }
-    event.stopPropagation();
-    numberOfFaces *= 2;
-  
-    console.log(numberOfFaces);
-    generateFaces(difficulty);
-    countAttempts();
   }
+  event.stopPropagation();
+  currentLevel++; // Increment the current level
+  generateFaces(difficulty);
+  countAttempts();
+}
 
 function countAttempts() {
   if (!gameHasStarted) {
