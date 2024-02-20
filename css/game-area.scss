@@ -1,0 +1,63 @@
+// .containerDiv {
+//     background-image: url(../images/servers.webp);
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-size: 500px 500px;
+//   }
+
+//   #rightSide img,
+//   #leftSide img {
+//     position: absolute;
+//   }
+
+//   .mainDiv {
+//     position: absolute;
+//     width: 500px;
+//     height: 500px;
+//   }
+
+
+//   #rightSide {
+//     left: 500px;
+//     border-left: 5px solid;
+//     border-color: aliceblue;
+//   }
+// #gameArea {
+//   transform: translateX(22.5%);
+// }
+.containerDiv {
+    position: fixed; /* Position the container fixed relative to the viewport */
+    top: 0; /* Place it at the top of the viewport */
+    left: 0; /* Align it to the left edge */
+    width: 100%; /* Occupy the full width of the viewport */
+    height: 500px; /* Set a fixed height */
+    background-image: url(../images/servers.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    z-index: 9999; /* Set a high z-index to ensure it stays on top of other content */
+  }
+  
+  #rightSide img,
+  #leftSide img {
+    position: absolute;
+  }
+  
+  .mainDiv {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+  }
+  
+  #rightSide {
+    left: 500px;
+    border-left: 5px solid;
+    border-color: aliceblue;
+  }
+  
+  #gameArea {
+    transform: translate(22.5%);
+  }
+  .gameCon {
+    transform: translateY(22%);
+  }

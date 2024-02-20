@@ -43,8 +43,11 @@ theGameArea.style.display = "none";
 theMenuBtnContainer.style.display = "none";
 theGameOverScreen.style.display = "none";
 theAttemptsContainer.style.display = "none";
+theAttDisplay.style.color = "white";
 timerSpan.style.display = "none";
 thePar.style.display = "none";
+timerSpan.style.color = 'blue';
+
 
 function startGame(difficulty) {
   if (gameHasStarted) {
@@ -52,6 +55,7 @@ function startGame(difficulty) {
   }
   resetGame()
   theAttDisplay.textContent = '1';
+  timerSpan.style.color = 'blue';
   gameHasStarted = true;
   userName = prompt('Enter Name:');
   console.log(userName);
@@ -140,7 +144,6 @@ function generateFaces(difficulty) {
   for (let i = 0; i < imageUrls.length; i++) {
     console.log("Image URL " + i + ": " + imageUrls[i]);
   }
-  
     // Clear the left and right sides before generating new faces
     numberOfFaces *= currentLevel;
     theLeftSide.innerHTML = "";
@@ -191,7 +194,21 @@ function nextLevel(event, difficulty) {
   generateFaces(difficulty);
   countAttempts();
   timeLeft += 5;
+  timerSpan.style.color = 'green'; // Change timer color to green
+  timerSpan.innerHTML = timeLeft + '+++++';
+  setTimeout(function() {
+    timerSpan.style.color = 'blue'; // Change timer color back to blue after 1 second
+  }, 2000);
+  setTimeout(function() {
+    theAttDisplay.style.color = 'green'; 
+  }, 1000);
+
+  // Change attempts display color back to white after 2 seconds
+  setTimeout(function() {
+    theAttDisplay.style.color = 'white'; 
+  }, 2000);
 }
+
 
 function countAttempts() {
   if (!gameHasStarted) {
@@ -216,7 +233,11 @@ function gameOver() {
   thePar.style.display = "none";
   theMenuBtnContainer.style.display = "block";
   theGameOverScreen.style.display = "block";
-  theGameOverMessage.innerHTML = userName + " YOU HAVE REACHED " + theAttDisplay.textContent + " LEVELS!"
+  if (theAttDisplay.innerHTML === '1') {
+    theGameOverMessage.innerHTML = userName + " Try Again!"
+  }else {
+  theGameOverMessage.innerHTML = userName + " You Reached " + theAttDisplay.textContent + " Levels!"
+}
   gameHasStarted = false;
   theMenuBtnContainer.addEventListener("click", mainMenuPress);
   document.body.removeEventListener("click", gameOver);
@@ -232,6 +253,9 @@ function updateTimer() {
   } else {
     gameOver();
     resetGame();
+  }
+  if (timeLeft < 21) {
+    timerSpan.style.color = "red";
   }
 }
 

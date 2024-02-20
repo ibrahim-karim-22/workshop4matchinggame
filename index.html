@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="author" content="Ibrahim Karim" />
   <title>Matching Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/brands.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/solid.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.scss">
 
 </head>
 
@@ -21,59 +21,70 @@
   <h1 class="pageTitle">MatchingGame <span class="titleImg10">
       <img
         src="images/cat3.webp"
+        alt="A CAT"
         width="55px" />
-    </span>SmileGame</h1><span id="timer" class="text-primary">0</span>
+    </span>SmileGame</h1><span id="timer">0</span>
   <div class="startBtnContainer">
     <div class="startBtn">
       <div class="titleImg1">
         <img
           src="images/man.webp"
+          alt="A man"
           width="222px" />
       </div>
       <div class="titleImg2">
         <img
           src="images/01.webp"
+          alt="IMAGE"
           width="155px" />
       </div>
       <div class="titleImg3">
         <img
           src="images/dua1.webp"
+          alt="woman"
           width="200px" />
       </div>
 
       <div class="titleImg4">
         <img
           src="images/light1.webp"
+          alt="Lightning"
           width="199px" />
       </div>
       <div class="titleImg5">
         <img
           src="images/light2.webp"
+          alt="Lightning"
           width="199px" />
       </div>
       <div class="titleImg6">
         <img
           src="images/sky.webp"
+          alt="Night Sky"
           width="1000px" height="500px" />
       </div>
       <div class="titleImg7">
         <img
           src="images/dua2.webp"
+          alt="woman"
           width="200px" />
       </div>
       <div class="titleImg8">
         <img
           src="images/orange.webp"
+          alt="AN ORANGE"
           width="33px" />
       </div>
       <div class="titleImg9">
         <img
           src="images/cat4.webp"
+          alt="ANOTHER CAT"
           width="33px" />
       </div>
       <div class="titleImg11">
         <img
           src="images/cat2.webp"
+          alt="ALSO A CAT"
           width="33px" />
       </div>
       <button id="easyButton" class="btn btn-danger btn-lg mb-3 strt">EASY</button>
@@ -110,14 +121,18 @@
       <button id="menuButton" class="btn btn-warning">Main Menu!</button>
     </div>
   </div>
-  <p class="par1 mt-5">Click the extra image on the left. Do not click anywhere else. Gain 5 seconds every level</p>
+  <div class="par1">
+    <p >Click the extra image on the left. Do not click anywhere else. Gain 5 seconds every level</p>
+  </div>
+  <div class="gameCon">
   <div id="gameArea">
     <div id="leftSide" class="mainDiv containerDiv"></div>
     <div id="rightSide" class="mainDiv containerDiv"></div>
   </div>
+</div>
   <div class="attemptsContainer">
     <h2 class="attempts text-light">Level: </h2>
-    <h2 id="attDisplay" class="text-light">1</h2>
+    <h2 id="attDisplay">1</h2>
   </div>
   <div id="gameOverScreen">
     <div class="gameOverImageDiv">

@@ -1,0 +1,32 @@
+.items {
+  width: 100px;
+  z-index: 3;
+}
+
+* {
+  border: 1px solid red; /* Outline all elements */
+  outline: 1px solid blue; /* Highlight any elements that overflow */
+}
+
+@import 'buttons';
+@import 'elements';
+@import 'game-area';
+@import 'imgs';
+@import 'levels-timer';
+@import 'text';
+  
+  
+ 
+
+ 
+ 
+  
+
+
+
+ 
+
+
+
+
+ 

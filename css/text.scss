@@ -1,0 +1,30 @@
+
+.pageTitle {
+    text-align: center;
+    color: rgb(0, 0, 125);
+    text-shadow: aliceblue 1px 1px;
+    font-family: 'Play', sans-serif;
+    font-size: 55px;
+  }
+
+  .par1 {
+    position: relative;
+    color: blue;
+    text-shadow: black 3px 2px;
+    font-size: 22px;
+    left: 27%;
+    transform:translateY(22%);
+
+  }
+  .gameOverMessage {
+    position: fixed;
+    top: 534px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    z-index: 2;
+}
+  .gameOverMessage {
+    color: rgb(204, 255, 0);
+    font-size: 44px;
+    text-shadow: blue 2px 2px;
+  }
