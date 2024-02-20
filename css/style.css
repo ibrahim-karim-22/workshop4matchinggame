@@ -311,3 +311,7 @@ body {
   #timer {
     font-size: 40px;
   }
+  .items {
+    width: 100px;
+    z-index: 3;
+  }

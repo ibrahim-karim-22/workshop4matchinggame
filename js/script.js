@@ -28,7 +28,7 @@ let randomTop;
 let randomBottom;
 let gameHasStarted = false;
 let leftImgsCopy;
-let currentLevel = 1;
+let currentLevel = 2;
 let extraImage;
 let extraImageUrl;
 let randomExtraTop;
@@ -78,7 +78,7 @@ function resetGame() {
   gameHasStarted = false;
   // numberOfFaces = 5;
   //theAttDisplay.textContent = '1';
-  currentLevel = 1;
+  currentLevel = 2;
   theLeftSide.innerHTML = "";
   theRightSide.innerHTML = "";
   clearInterval(timer);
@@ -112,41 +112,49 @@ function generateFaces(difficulty) {
   switch (difficulty) {
     case "easy":
       numberOfFaces = 2;
-      imageUrls = [ "../images/servers.webp" ,"../images/cat3.webp", "../images/dua2.webp",  "../images/dua3.webp"]
+      imageUrls = ["https://i.giphy.com/JLGhqNoi9xsnS.webp", "https://i.giphy.com/2VVvpkyyym5FOrHQG3.webp"]
       break;
     case "medium":
       numberOfFaces = 5;
-      imageUrls = [
-      ]
+      imageUrls = ["https://i.giphy.com/pUjFF6SVlR5OeKEqCY.webp", "https://i.giphy.com/dQx8nzM8Z1EJXbBqk3.webp", "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWxrdWllZ25oYjhzcnRubW56Y3dreWQ2cHI2YjJ4aDM0emF0aXYyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/p94nK1krMpGIkJYYJv/giphy.gif",
+      "https://i.giphy.com/d2Sor6kd4bug3J3Srk.webp", "https://i.giphy.com/2VVvpkyyym5FOrHQG3.webp"]
       break;
     case "hard":
       numberOfFaces = 8;
-      imageUrls = [
-      ]
+      imageUrls = ["https://i.giphy.com/T6oln8tuKfrrE7Wh47.webp", 
+      "https://i.giphy.com/l46Cpss7mfcEftf56.webp", "https://i.giphy.com/2VVvpkyyym5FOrHQG3.webp","https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzdxb2RrcTB6bXdmeWNwdHBmZjhhOWd2eDFiNDhwdWllZHRyN3BqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AoFwZ9cx7FcWY/giphy.gif",
+      "https://i.giphy.com/llxTZC250AVby0Xdan.webp", "https://i.giphy.com/C0Rvn1BlqQQgM.webp", "https://i.giphy.com/llxTZC250AVby0Xdan.webp", 
+      "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzdxb2RrcTB6bXdmeWNwdHBmZjhhOWd2eDFiNDhwdWllZHRyN3BqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AoFwZ9cx7FcWY/giphy.gif"]
       break;
     case "goodLuck":
       numberOfFaces = 10;
-      imageUrls = [
-      ]
+      imageUrls = ["https://i.giphy.com/JLGhqNoi9xsnS.webp" ,"https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2tjZnhtYWZxbjhhc3kycWk5YnBiYW9iM2lkOXoweWUxN2hwZGRzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/SHgA5d6Aoqp7OJXdCC/giphy.gif",
+                  "https://i.giphy.com/T6oln8tuKfrrE7Wh47.webp", "https://i.giphy.com/pUjFF6SVlR5OeKEqCY.webp", "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWxrdWllZ25oYjhzcnRubW56Y3dreWQ2cHI2YjJ4aDM0emF0aXYyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/p94nK1krMpGIkJYYJv/giphy.gif",
+                  "https://i.giphy.com/l46Cpss7mfcEftf56.webp", "https://i.giphy.com/2VVvpkyyym5FOrHQG3.webp", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzdxb2RrcTB6bXdmeWNwdHBmZjhhOWd2eDFiNDhwdWllZHRyN3BqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AoFwZ9cx7FcWY/giphy.gif",
+                  "https://i.giphy.com/dQx8nzM8Z1EJXbBqk3.webp", "https://i.giphy.com/llxTZC250AVby0Xdan.webp", "https://i.giphy.com/C0Rvn1BlqQQgM.webp", "https://i.giphy.com/d2Sor6kd4bug3J3Srk.webp",]
       break;
     default:
       console.error('invalid');
       return;
   }
+  for (let i = 0; i < imageUrls.length; i++) {
+    console.log("Image URL " + i + ": " + imageUrls[i]);
+  }
   
     // Clear the left and right sides before generating new faces
-    numberOfFaces += currentLevel;
+    numberOfFaces *= currentLevel;
     theLeftSide.innerHTML = "";
     theRightSide.innerHTML = "";
     console.log('left: ' + theLeftSide.innerHTML + 'right: ' + theRightSide.innerHTML);
   for (let i = 0; i < numberOfFaces; i++) {
     face = document.createElement("img");
-    face.src = imageUrls[i];
+    face.src = imageUrls[i % imageUrls.length];
     face.style.width = "77px";
     randomTop = Math.floor(Math.random() * 400) + 1;
     randomLeft = Math.floor(Math.random() * 400) + 1;
     face.style.top = randomTop + "px";
     face.style.left = randomLeft + "px";
+    face.title = "Image ";
     theLeftSide.appendChild(face);
   }
     extraImage = document.createElement("img");
