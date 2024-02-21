@@ -10,6 +10,8 @@ const theHardBtn = document.querySelector("#hardButton");
 const theGoodLuckBtn = document.querySelector("#goodLuckButton");
 const theSettingsBtnContainer = document.querySelector(".settingsBtnContainer");
 const theInfoBtnContainer = document.querySelector(".infoBtnContainer");
+const theInfoButton = document.querySelector('#infoButton');
+const theInfoSentence = document.querySelector('.info');
 const theMenuBtnContainer = document.querySelector(".menuBtnContainer");
 const theButtonsBg = document.querySelector(".buttonsBg");
 const timerSpan = document.querySelector("#timer");
@@ -47,6 +49,7 @@ theAttDisplay.style.color = "white";
 timerSpan.style.display = "none";
 thePar.style.display = "none";
 timerSpan.style.color = 'blue';
+theInfoSentence.style.display = 'none';
 
 
 function startGame(difficulty) {
@@ -54,7 +57,7 @@ function startGame(difficulty) {
     return;
   }
   resetGame()
-  theAttDisplay.textContent = '1';
+  theAttDisplay.textContent = 'level: 1';
   timerSpan.style.color = 'blue';
   gameHasStarted = true;
   userName = prompt('Enter Name:');
@@ -101,11 +104,28 @@ function mainMenuPress() {
   theAttemptsContainer.style.display = "none";
   timerSpan.style.display = "none";
   thePar.style.display = "none";
+  theInfoSentence.style.display = 'none';
   theEasyBtn.style.display = "block";
   theMediumBtn.style.display = "block";
   theHardBtn.style.display = "block";
   theGoodLuckBtn.style.display = "block";
   //  generateFaces();
+}
+function infoPage() {
+  theGameArea.style.display = "none";
+  theStartBtnContainer.style.display = "none";
+  theInfoBtnContainer.style.display = "none";
+  theButtonsBg.style.display = "none";
+  theAttemptsContainer.style.display = "none";
+  timerSpan.style.display = "none";
+  thePar.style.display = "none";
+  theMenuBtnContainer.style.display = "block";
+  theEasyBtn.style.display = "none";
+  theMediumBtn.style.display = "none";
+  theHardBtn.style.display = "none";
+  theGoodLuckBtn.style.display = "none";
+  theInfoBtnContainer.style.display = "none";
+   theInfoSentence.style.display = "block";
 }
 
 function generateFaces(difficulty) {
@@ -195,7 +215,14 @@ function nextLevel(event, difficulty) {
   countAttempts();
   timeLeft += 5;
   timerSpan.style.color = 'green'; // Change timer color to green
-  timerSpan.innerHTML = timeLeft + '+++++';
+ timerSpan.textContent = timeLeft + '+++++';
+timerSpan.style.fontSize = '40px';
+timerSpan.style.position = 'absolute';
+timerSpan.style.top = '0';
+setTimeout(function() {
+  timeLeft.style.left = '44px'// Change timer color back to blue after 1 second
+}, 2000);
+
   setTimeout(function() {
     timerSpan.style.color = 'blue'; // Change timer color back to blue after 1 second
   }, 2000);
@@ -214,9 +241,9 @@ function countAttempts() {
   if (!gameHasStarted) {
     return;
   }
-  const currentAttempt = parseInt(theAttDisplay.textContent, 10) || 0;
+  const currentAttempt = parseInt(theAttDisplay.textContent.split(": ")[1], 10) || 0;
   const newAttempt = currentAttempt + 1;
-  theAttDisplay.textContent = newAttempt;
+  theAttDisplay.textContent = 'Level: ' + newAttempt;
 }
 
 function gameOver() {
@@ -226,7 +253,6 @@ function gameOver() {
   resetGame();
   theGameArea.style.display = "none";
   theStartBtnContainer.style.display = "none";
-  theInfoBtnContainer.style.display = "none";
   theButtonsBg.style.display = "none";
   theAttemptsContainer.style.display = "none";
   timerSpan.style.display = "none";
@@ -236,7 +262,7 @@ function gameOver() {
   if (theAttDisplay.innerHTML === '1') {
     theGameOverMessage.innerHTML = userName + " Try Again!"
   }else {
-  theGameOverMessage.innerHTML = userName + " You Reached " + theAttDisplay.textContent + " Levels!"
+  theGameOverMessage.innerHTML = userName +  " You Reached " + theAttDisplay.textContent;
 }
   gameHasStarted = false;
   theMenuBtnContainer.addEventListener("click", mainMenuPress);
@@ -273,3 +299,4 @@ document.querySelector("#easyButton").addEventListener("click", function () {
   });
   document.querySelector("#gameArea").addEventListener("click", gameOver);
   document.querySelector("#menuButton").addEventListener("click", mainMenuPress);
+  document.querySelector('#infoButton').addEventListener("click", infoPage)

@@ -10,12 +10,21 @@
   .par1 {
     position: relative;
     color: blue;
-    text-shadow: black 3px 2px;
+    text-shadow: black 1px 1px;
     font-size: 22px;
-    left: 27%;
-    transform:translateY(22%);
-
-  }
+    transform: translateY(-5%);
+    border-style: groove;
+    border-color: black;
+    background-color: rgb(1, 1, 29);
+    text-align: center;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block; /* Ensure the element only surrounds the text */
+    padding: 1px; /* Adjust padding as needed */
+    margin: 0; /* Optionally, set margin to 0 to avoid any unintended spacing */
+    box-sizing: content-box;
+}
   .gameOverMessage {
     position: fixed;
     top: 534px;
@@ -27,4 +36,76 @@
     color: rgb(204, 255, 0);
     font-size: 44px;
     text-shadow: blue 2px 2px;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
   }
+  .infoSentence {
+    color: rgb(255, 0, 0);
+    font-size: 22px;
+    text-align: center;
+    z-index: 1;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+  }
+  .doNot {
+    color: red;
+  }
+  .do {
+    color: green;
+  }
+  @media (max-width: 575.98px) {
+    .par1 {
+      transform: scale(.5) translateX(0%) translateY(-44%); /* Adjust the scaling factor as needed */
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .par1 {
+    transform: scale(.5) translateX(0%) translateY(-22%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .par1 {
+    transform: scale(.5) translateX(0%) translateY(-155%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .par1 {
+    transform: scale(.5) translateX(0%) translateY(-142%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 1199.98px) and (max-width: 2450px){
+  .par1 {
+    transform: scale(.7) translateX(0%) translateY(-99%); /* Adjust the scaling factor as needed */
+}
+}
+@media (max-width: 575.98px) {
+  h1 {
+    transform: scale(.8); /* Adjust the scaling factor as needed */
+}
+}
+@media (max-width: 575.98px) {
+  .gameOverMessage {
+    width:300px;
+    transform: scale(1) translateX(-38%) translateY(-88%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+.gameOverMessage {
+  width:300px;
+  transform: scale(1) translateX(-42%) translateY(-29%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+.gameOverMessage {
+  width:555px;
+  transform: scale(1) translateX(-48%) translateY(-77%);  /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+.gameOverMessage {
+  width:600px;
+  transform: scale(1) translateX(-48%) translateY(-55%); /* Adjust the scaling factor as needed */
+}
+}
+
+

@@ -95,3 +95,13 @@
 
     width: 444px;
   }
+  @media (max-width: 575.98px) {
+    .menuBtnContainer {
+      transform: scale(1) translateX(0%) translateY(-12%); /* Adjust the scaling factor as needed */
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .menuBtnContainer {
+    transform: scale(1) translateX(0%) translateY(-22%); /* Adjust the scaling factor as needed */
+}
+}

@@ -24,3 +24,71 @@
     transform: translateY(1222%);
     z-index: 2;
   }
+  @media (max-width: 575.98px) {
+    #timer {
+      transform: scale(1) translateX(-300%) translateY(733%); /* Adjust the scaling factor as needed */
+  }
+}
+@media (min-width: 583px) and (max-width: 991.98px) {
+  #timer {
+    transform: scale(1) translateX(-355%) translateY(811%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 760px) and (max-width: 1200px) {
+  #timer {
+    transform: scale(1) translateX(-355%) translateY(922%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 1200px) and (max-width: 2450px) {
+  #timer {
+    transform: scale(1) translateX(-222%) translateY(1183%); /* Adjust the scaling factor as needed */
+}
+}
+
+/////////
+@media (max-width: 575.98px) {
+  .attemptsContainer {
+    transform: scale(1) translateX(-51%) translateY(968%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 583px) and (max-width: 991.98px) {
+  .attemptsContainer {
+  transform: scale(1) translateX(7%) translateY(1066%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 760px) and (max-width: 1200px) {
+  .attemptsContainer {
+  transform: scale(1) translateX(44%) translateY(1222%); /* Adjust the scaling factor as needed */
+}
+}
+@media (min-width: 1200px) and (max-width: 2450px) {
+  .attemptsContainer {
+  transform: scale(1) translateX(199%) translateY(1555%); /* Adjust the scaling factor as needed */
+}
+}
+
+
+
+
+
+////////
+// @media (min-width: 576px) and (max-width: 767.98px) {
+//   .par1 {
+//     transform: scale(.5) translateX(0%) translateY(-155%); /* Adjust the scaling factor as needed */
+// }
+// }
+// @media (min-width: 768px) and (max-width: 991.98px) {
+//   .par1 {
+//     transform: scale(.5) translateX(0%) translateY(-155%); /* Adjust the scaling factor as needed */
+// }
+// }
+// @media (min-width: 992px) and (max-width: 1199.98px) {
+//   .par1 {
+//     transform: scale(.8) translateX(0%) translateY(-142%); /* Adjust the scaling factor as needed */
+// }
+// }
+// @media (min-width: 1200px) {
+//   .par1 {
+//     transform: scale(1) translateX(0%) translateY(-99%); /* Adjust the scaling factor as needed */
+// }
+// }

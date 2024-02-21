@@ -61,3 +61,48 @@
   .gameCon {
     transform: translateY(22%);
   }
+  @media (min-width: 330) and (max-width: 575.98px) {
+    .parentContainer {
+        position: absolute;
+        top: 37%; /* Adjust the value as needed */
+        left: 9%; /* Adjust the value as needed */
+        transform: scale(0.3);
+        /* Other styles... */
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .parentContainer {
+    position: absolute;
+    top: 30%; /* Adjust the value as needed */
+    left: 14%; /* Adjust the value as needed */
+    transform: scale(0.5);
+    /* Other styles... */
+}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .parentContainer {
+    position: absolute;
+    top: 22%; /* Adjust the value as needed */
+    left: 9%; /* Adjust the value as needed */
+    transform: scale(0.77);
+    /* Other styles... */
+}
+}
+@media (min-width: 900px) and (max-width: 1199.98px) {
+  .parentContainer {
+    position: absolute;
+    top: 77%; /* Adjust the value as needed */
+    left: 9%; /* Adjust the value as needed */
+    transform: scale(0.77);
+    /* Other styles... */
+  }
+}
+@media (min-width: 1200px) and (max-width: 3000px) {
+  .parentContainer {
+    position: absolute;
+    top: 88%; /* Adjust the value as needed */
+    left: 23%; /* Adjust the value as needed */
+    transform: scale(1);
+    /* Other styles... */
+  }
+}

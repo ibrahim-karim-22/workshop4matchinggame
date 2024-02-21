@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/brands.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/solid.css" />
@@ -24,6 +25,7 @@
         alt="A CAT"
         width="55px" />
     </span>SmileGame</h1><span id="timer">0</span>
+<div id="starCon">
   <div class="startBtnContainer">
     <div class="startBtn">
       <div class="titleImg1">
@@ -48,7 +50,7 @@
         <img 
         src="images/burger.webp"
         alt="Burgers"
-        width="99px" />
+        width="47px" />
        
       </div>
 
@@ -123,23 +125,25 @@
       width="833px">
   </div>
   </div>
+
+
+
   <div class="menuBtnContainer">
     <div class="menuBtn">
       <button id="menuButton" class="btn btn-warning">Main Menu!</button>
     </div>
   </div>
   <div class="par1">
-    <p >Click the extra image on the left. Do not click anywhere else. Gain 5 seconds every level</p>
+    <p ><span class="do">Click the extra image on the left. </span><br><span class="doNot"> Do not click anywhere else. </span><br>  Gain 5 seconds every level</p>
   </div>
-  <div class="gameCon">
+  <div class="gameCon parentContainer">
   <div id="gameArea">
     <div id="leftSide" class="mainDiv containerDiv"></div>
     <div id="rightSide" class="mainDiv containerDiv"></div>
   </div>
 </div>
   <div class="attemptsContainer">
-    <h2 class="attempts text-light">Level: </h2>
-    <h2 id="attDisplay">1</h2>
+    <h2 id="attDisplay" class="attempts" >Level: </h2>
   </div>
   <div id="gameOverScreen">
     <div class="gameOverImageDiv">
@@ -149,6 +153,9 @@
     </div>
     <div class="gameOverMessage"></div>
     <div class="scoreBoard"></div>
+  </div>
+  <div class="info">
+    <p class="infoSentence">All Gifs in this game were created by artists on <a href="https://giphy.com/">GIPHY</a> </p>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
