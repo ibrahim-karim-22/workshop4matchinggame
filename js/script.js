@@ -168,7 +168,7 @@ function generateFaces(difficulty) {
   for (let i = 0; i < numberOfFaces; i++) {
     face = document.createElement("img");
     face.src = imageUrls[i % imageUrls.length];
-    face.style.width = "77px";
+    face.style.width = "59px";
     randomTop = Math.floor(Math.random() * 400) + 1;
     randomLeft = Math.floor(Math.random() * 400) + 1;
     face.style.top = randomTop + "px";
@@ -179,7 +179,7 @@ function generateFaces(difficulty) {
   extraImage = document.createElement("img");
   extraImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
   extraImage.src = extraImageUrl;
-  extraImage.style.width = "77px";
+  extraImage.style.width = "59px";
   randomExtraTop = Math.floor(Math.random() * 400) + 1;
   randomExtraLeft = Math.floor(Math.random() * 400) + 1;
   extraImage.style.top = randomExtraTop + "px";
