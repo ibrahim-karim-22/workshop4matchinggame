@@ -21,10 +21,11 @@
   transform: translateY(179%);
   z-index: 0;
 }
+
 .burgerH {
   position: absolute;
   top: 0;
-  right:88%;
+  right: 88%;
   transform: translateY(545%);
   z-index: 2;
 }
@@ -91,89 +92,97 @@
   transform: translateY(599%);
   z-index: 1;
 }
+
 .gameOverImage {
-    position: absolute;
+  position: absolute;
 
-    top: 0;
+  top: 0;
 
-    left: 37%;
+  left: 37%;
 
-    transform: translateX(-22%);
-    transform: translateY(33%);
-    z-index: -1;
-  }
-  @media (max-width: 575.98px) {
-    .gameOverImage {
-      transform: scale(.4) translateX(-102%) translateY(33%); /* Adjust the scaling factor as needed */
-  }
-  }
-  @media (min-width: 583px) and (max-width: 991.98px) {
-    .gameOverImage  {
-    transform: scale(.7) translateX(-49%) translateY(44%); /* Adjust the scaling factor as needed */
-  }
-  }
-  @media (min-width: 760px) and (max-width: 1200px) {
-    .gameOverImage  {
-      transform: scale(.7) translateX(-34%) translateY(22%); /* Adjust the scaling factor as needed */
-  }
-  }
-  @media (min-width: 1200px) and (max-width: 2450px) {
-    .gameOverImage {
-      transform: scale(1) translateX(0%) translateY(29%); /* Adjust the scaling factor as needed */
-  }
-  }
-
-  @media (min-width: 330) and (max-width: 575.98px) {
-    #starCon {
-        position: absolute;
-        top: -15%; /* Adjust the value as needed */
-        left: -62%; /* Adjust the value as needed */
-        transform: scale(0.3);
-        /* Other styles... */
-    }
+  transform: translateX(-22%);
+  transform: translateY(33%);
+  z-index: -1;
 }
+
+@media (max-width: 575.98px) {
+  .gameOverImage {
+    transform: scale(.4) translateX(-102%) translateY(33%);
+  }
+}
+
+@media (min-width: 583px) and (max-width: 991.98px) {
+  .gameOverImage {
+    transform: scale(.7) translateX(-49%) translateY(44%);
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1200px) {
+  .gameOverImage {
+    transform: scale(.7) translateX(-34%) translateY(22%);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 2450px) {
+  .gameOverImage {
+    transform: scale(1) translateX(0%) translateY(29%);
+  }
+}
+
+@media (min-width: 330) and (max-width: 575.98px) {
+  #starCon {
+    position: absolute;
+    top: -15%;
+    left: -62%;
+    transform: scale(0.3);
+  }
+}
+
 @media (min-width: 576px) and (max-width: 767.98px) {
   #starCon {
     position: absolute;
-    top: -19%; /* Adjust the value as needed */
-    left: -22%; /* Adjust the value as needed */
+    top: -19%;
+    left: -22%;
     transform: scale(0.3);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .parentContainer {
     position: absolute;
-    top: 22%; /* Adjust the value as needed */
-    left: 9%; /* Adjust the value as needed */
+    top: 22%;
+    left: 9%;
     transform: scale(0.77);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .parentContainer {
     position: absolute;
-    top: 24%; /* Adjust the value as needed */
-    left: 9%; /* Adjust the value as needed */
+    top: 24%;
+    left: 9%;
     transform: scale(0.77);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 1200px) {
   .parentContainer {
     position: absolute;
-    top: 22%; /* Adjust the value as needed */
-    left: 23%; /* Adjust the value as needed */
+    top: 22%;
+    left: 23%;
     transform: scale(1);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 1700px) {
   .parentContainer {
     position: absolute;
-    top: 22%; /* Adjust the value as needed */
-    left: 22%; /* Adjust the value as needed */
+    top: 22%;
+    left: 22%;
     transform: scale(1);
-    /* Other styles... */
-}
+  }
 }

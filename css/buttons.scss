@@ -1,107 +1,112 @@
 .startBtn {
-    position: relative;
-    display: inline-block;
-  }
+  position: relative;
+  display: inline-block;
+}
 
-  .startBtn button {
-    position: relative;
-    z-index: 0;
-  }
-  .startBtnContainer {
-    text-align: center;
-  }
+.startBtn button {
+  position: relative;
+  z-index: 0;
+}
 
-  .buttonsBg {
-    text-align: center;
-  }
-  .settingsBtn {
-    position: relative;
-    display: inline-block;
+.startBtnContainer {
+  text-align: center;
+}
 
-  }
+.buttonsBg {
+  text-align: center;
+}
 
-  .settingsBtn {
-    position: relative;
-    z-index: 0;
-  }
+.settingsBtn {
+  position: relative;
+  display: inline-block;
 
-  .settingsBtnContainer {
-    text-align: center;
-  }
+}
 
-  .infoBtn {
-    position: relative;
-    display: inline-block;
-  }
+.settingsBtn {
+  position: relative;
+  z-index: 0;
+}
 
-  .infoBtn {
-    position: relative;
-    z-index: 0;
-  }
+.settingsBtnContainer {
+  text-align: center;
+}
 
-  .infoBtnContainer {
-    text-align: center;
-  }
+.infoBtn {
+  position: relative;
+  display: inline-block;
+}
 
-  .mediumBtnContainer {
-    text-align: center;
-    position: relative;
-    z-index: 0;
-  }
+.infoBtn {
+  position: relative;
+  z-index: 0;
+}
 
-  .hardBtnContainer {
-    text-align: center;
-  }
+.infoBtnContainer {
+  text-align: center;
+}
 
-  .goodLuckBtnContainer {
-    text-align: center;
-  }
+.mediumBtnContainer {
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
 
-  .mediumBtn {
-    position: relative;
-    display: inline-block;
-    
-  }
+.hardBtnContainer {
+  text-align: center;
+}
 
-  .hardBtn {
-    position: relative;
-    display: inline-block;
-  }
+.goodLuckBtnContainer {
+  text-align: center;
+}
 
-  .menuBtn {
-    position: relative;
-    display: inline-block;
-  }
+.mediumBtn {
+  position: relative;
+  display: inline-block;
 
-  .menuBtn {
-    position: relative;
-    z-index: 0;
- 
-  }
+}
 
+.hardBtn {
+  position: relative;
+  display: inline-block;
+}
+
+.menuBtn {
+  position: relative;
+  display: inline-block;
+}
+
+.menuBtn {
+  position: relative;
+  z-index: 0;
+
+}
+
+.menuBtnContainer {
+  text-align: center;
+  transform: translateY(-177%);
+}
+
+.strt {
+  width: 444px;
+}
+
+.stngs {
+  width: 444px;
+}
+
+.inf {
+
+  width: 444px;
+}
+
+@media (max-width: 575.98px) {
   .menuBtnContainer {
-    text-align: center;
-    transform: translateY(-177%);
-  }
-  .strt {
-    width: 444px;
-  }
-
-  .stngs {
-    width: 444px;
-  }
-
-  .inf {
-
-    width: 444px;
-  }
-  @media (max-width: 575.98px) {
-    .menuBtnContainer {
-      transform: scale(1) translateX(0%) translateY(-12%); /* Adjust the scaling factor as needed */
+    transform: scale(1) translateX(0%) translateY(-12%);
   }
 }
+
 @media (min-width: 576px) and (max-width: 767.98px) {
   .menuBtnContainer {
-    transform: scale(1) translateX(0%) translateY(-22%); /* Adjust the scaling factor as needed */
-}
+    transform: scale(1) translateX(0%) translateY(-22%);
+  }
 }

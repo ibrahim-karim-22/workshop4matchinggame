@@ -10,146 +10,102 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Kode+Mono:wght@400..700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/brands.css" />
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/solid.css" />
   <link rel="stylesheet" href="css/style.scss">
-
 </head>
 
 <body>
   <h1 class="pageTitle">MatchingGame <span class="titleImg10">
-      <img
-        src="images/cat3.webp"
-        alt="A CAT"
-        width="55px" />
+      <img src="images/cat3.webp" alt="A CAT" width="55px" />
     </span>SmileGame</h1><span id="timer">0</span>
-<div id="starCon">
-  <div class="startBtnContainer">
-    <div class="startBtn">
-      <div class="titleImg1">
-        <img
-          src="images/man.webp"
-          alt="A man"
-          width="222px" />
+  <div id="starCon">
+    <div class="startBtnContainer">
+      <div class="startBtn">
+        <div class="titleImg1">
+          <img src="images/man.webp" alt="A man" width="222px" />
+        </div>
+        <div class="titleImg2">
+          <img src="images/01.webp" alt="IMAGE" width="155px" />
+        </div>
+        <div class="titleImg3">
+          <img src="images/dua1.webp" alt="woman" width="200px" />
+        </div>
+        <div class="burgerH">
+          <img src="images/burger.webp" alt="Burgers" width="47px" />
+        </div>
+        <div class="titleImg4">
+          <img src="images/light1.webp" alt="Lightning" width="199px" />
+        </div>
+        <div class="titleImg5">
+          <img src="images/light2.webp" alt="Lightning" width="199px" />
+        </div>
+        <div class="titleImg6">
+          <img src="images/sky.webp" alt="Night Sky" width="1000px" height="500px" />
+        </div>
+        <div class="titleImg7">
+          <img src="images/dua2.webp" alt="woman" width="200px" />
+        </div>
+        <div class="titleImg8">
+          <img src="images/orange.webp" alt="AN ORANGE" width="33px" />
+        </div>
+        <div class="titleImg9">
+          <img src="images/cat4.webp" alt="ANOTHER CAT" width="33px" />
+        </div>
+        <div class="titleImg11">
+          <img src="images/cat2.webp" alt="ALSO A CAT" width="33px" />
+        </div>
+        <button id="easyButton" class="btn btn-danger btn-lg mb-3 strt">EASY</button>
       </div>
-      <div class="titleImg2">
-        <img
-          src="images/01.webp"
-          alt="IMAGE"
-          width="155px" />
+    </div>
+    <div class="mediumBtnContainer">
+      <div class="mediumBtn">
+        <button id="mediumButton" class="btn btn-danger btn-lg mb-3 stngs">MEDIUM</button>
       </div>
-      <div class="titleImg3">
-        <img
-          src="images/dua1.webp"
-          alt="woman"
-          width="200px" />
+    </div>
+    <div class="hardBtnContainer">
+      <div class="hardBtn">
+        <button id="hardButton" class="btn btn-danger btn-lg mb-3 inf">HARD</button>
       </div>
-      <div class="burgerH">
-        <img 
-        src="images/burger.webp"
-        alt="Burgers"
-        width="47px" />
-       
+    </div>
+    <div class="goodLuckBtnContainer">
+      <div class="infoBtn">
+        <button id="goodLuckButton" class="btn btn-danger btn-lg mb-3 inf">GOOD LUCK</button>
       </div>
-
-      <div class="titleImg4">
-        <img
-          src="images/light1.webp"
-          alt="Lightning"
-          width="199px" />
+    </div>
+    <div class="infoBtnContainer">
+      <div class="infoBtn">
+        <button id="infoButton" class="btn btn-danger btn-lg inf">Info</button>
       </div>
-      <div class="titleImg5">
-        <img
-          src="images/light2.webp"
-          alt="Lightning"
-          width="199px" />
-      </div>
-      <div class="titleImg6">
-        <img
-          src="images/sky.webp"
-          alt="Night Sky"
-          width="1000px" height="500px" />
-      </div>
-      <div class="titleImg7">
-        <img
-          src="images/dua2.webp"
-          alt="woman"
-          width="200px" />
-      </div>
-      <div class="titleImg8">
-        <img
-          src="images/orange.webp"
-          alt="AN ORANGE"
-          width="33px" />
-      </div>
-      <div class="titleImg9">
-        <img
-          src="images/cat4.webp"
-          alt="ANOTHER CAT"
-          width="33px" />
-      </div>
-      <div class="titleImg11">
-        <img
-          src="images/cat2.webp"
-          alt="ALSO A CAT"
-          width="33px" />
-      </div>
-      <button id="easyButton" class="btn btn-danger btn-lg mb-3 strt">EASY</button>
+    </div>
+    <div class="buttonsBg">
+      <img src="images/helicopter.webp" width="833px">
     </div>
   </div>
-  <div class="mediumBtnContainer">
-    <div class="mediumBtn">
-      <button id="mediumButton" class="btn btn-danger btn-lg mb-3 stngs">MEDIUM</button>
-    </div>
-  </div>
-  <div class="hardBtnContainer">
-    <div class="hardBtn">
-      <button id="hardButton" class="btn btn-danger btn-lg mb-3 inf">HARD</button>
-    </div>
-  </div>
-  <div class="goodLuckBtnContainer">
-    <div class="infoBtn">
-      <button id="goodLuckButton" class="btn btn-danger btn-lg mb-3 inf">GOOD LUCK</button>
-    </div>
-  </div>
-  <div class="infoBtnContainer">
-    <div class="infoBtn">
-      <button id="infoButton" class="btn btn-danger btn-lg inf">Info</button>
-    </div>
-  </div>
-  <div class="buttonsBg">
-    <img
-      src="images/helicopter.webp"
-      width="833px">
-  </div>
-  </div>
-
-
-
   <div class="menuBtnContainer">
     <div class="menuBtn">
       <button id="menuButton" class="btn btn-warning">Main Menu!</button>
     </div>
   </div>
   <div class="par1">
-    <p ><span class="do">Click the extra image on the left. </span><br><span class="doNot"> Do not click anywhere else. </span><br>  Gain 5 seconds every level</p>
+    <p><span class="do">Click the extra image on the left. </span><br><span class="doNot"> Do not click anywhere else.
+      </span><br> Gain 5 seconds every level</p>
   </div>
   <div class="gameCon parentContainer">
-  <div id="gameArea">
-    <div id="leftSide" class="mainDiv containerDiv"></div>
-    <div id="rightSide" class="mainDiv containerDiv"></div>
+    <div id="gameArea">
+      <div id="leftSide" class="mainDiv containerDiv"></div>
+      <div id="rightSide" class="mainDiv containerDiv"></div>
+    </div>
   </div>
-</div>
   <div class="attemptsContainer">
-    <h2 id="attDisplay" class="attempts" >Level: </h2>
+    <h2 id="attDisplay" class="attempts">Level: </h2>
   </div>
   <div id="gameOverScreen">
     <div class="gameOverImageDiv">
-      <img class="gameOverImage"
-        src="images/gameo.webp"
-        alt="game over image">
+      <img class="gameOverImage" src="images/gameo.webp" alt="game over image">
     </div>
     <div class="gameOverMessage"></div>
     <div class="scoreBoard"></div>

@@ -1,108 +1,86 @@
-// .containerDiv {
-//     background-image: url(../images/servers.webp);
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-size: 500px 500px;
-//   }
-
-//   #rightSide img,
-//   #leftSide img {
-//     position: absolute;
-//   }
-
-//   .mainDiv {
-//     position: absolute;
-//     width: 500px;
-//     height: 500px;
-//   }
-
-
-//   #rightSide {
-//     left: 500px;
-//     border-left: 5px solid;
-//     border-color: aliceblue;
-//   }
-// #gameArea {
-//   transform: translateX(22.5%);
-// }
 .containerDiv {
-    position: fixed; /* Position the container fixed relative to the viewport */
-    top: 0; /* Place it at the top of the viewport */
-    left: 0; /* Align it to the left edge */
-    width: 100%; /* Occupy the full width of the viewport */
-    height: 500px; /* Set a fixed height */
-    background-image: url(../images/servers.webp);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 500px 500px;
-    z-index: 9999; /* Set a high z-index to ensure it stays on top of other content */
-  }
-  
-  #rightSide img,
-  #leftSide img {
-    position: absolute;
-  }
-  
-  .mainDiv {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-  }
-  
-  #rightSide {
-    left: 500px;
-    border-left: 5px solid;
-    border-color: aliceblue;
-  }
-  
-  #gameArea {
-    transform: translate(22.5%);
-  }
-  .gameCon {
-    transform: translateY(22%);
-  }
-  @media (min-width: 330) and (max-width: 575.98px) {
-    .parentContainer {
-        position: absolute;
-        top: 37%; /* Adjust the value as needed */
-        left: 9%; /* Adjust the value as needed */
-        transform: scale(0.3);
-        /* Other styles... */
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url(../images/servers.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 500px 500px;
+  z-index: 9999;
 }
+
+#rightSide img,
+#leftSide img {
+  position: absolute;
+}
+
+.mainDiv {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+}
+
+#rightSide {
+  left: 500px;
+  border-left: 5px solid;
+  border-color: aliceblue;
+}
+
+#gameArea {
+  transform: translate(22.5%);
+}
+
+.gameCon {
+  transform: translateY(22%);
+}
+
+@media (min-width: 330) and (max-width: 575.98px) {
+  .parentContainer {
+    position: absolute;
+    top: 37%;
+    left: 9%;
+    transform: scale(0.3);
+
+  }
+}
+
 @media (min-width: 576px) and (max-width: 767.98px) {
   .parentContainer {
     position: absolute;
-    top: 30%; /* Adjust the value as needed */
-    left: 14%; /* Adjust the value as needed */
+    top: 30%;
+    left: 14%;
     transform: scale(0.5);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .parentContainer {
     position: absolute;
-    top: 22%; /* Adjust the value as needed */
-    left: 9%; /* Adjust the value as needed */
+    top: 22%;
+    left: 9%;
     transform: scale(0.77);
-    /* Other styles... */
+
+  }
 }
-}
+
 @media (min-width: 900px) and (max-width: 1199.98px) {
   .parentContainer {
     position: absolute;
-    top: 77%; /* Adjust the value as needed */
-    left: 9%; /* Adjust the value as needed */
+    top: 77%;
+    left: 9%;
     transform: scale(0.77);
-    /* Other styles... */
+
   }
 }
+
 @media (min-width: 1200px) and (max-width: 3000px) {
   .parentContainer {
     position: absolute;
-    top: 88%; /* Adjust the value as needed */
-    left: 23%; /* Adjust the value as needed */
+    top: 88%;
+    left: 23%;
     transform: scale(1);
-    /* Other styles... */
   }
 }
